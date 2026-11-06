@@ -1,3 +1,0 @@
-# iturallc
-# iturallc
-# iturallc

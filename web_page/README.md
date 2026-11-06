@@ -58,15 +58,16 @@ espera máxima de 10 s por intento con 1 reintento ante errores de red o 5xx, y 
 `CONFIG` mantiene también las alternativas EmailJS y API propia, vacías. El SDK de EmailJS no se carga:
 si algún día se usa, hay que añadir su `<script>` antes de `main.js`.
 
-## Dominio (pendiente de confirmar)
+## Dominio
 
-El sitio usa `https://itura.studio/` en cinco lugares: `canonical`, `og:url` y `og:image` en `index.html`,
-`robots.txt` y `sitemap.xml`. El manual de marca v4 escribe `iturastudio.com`.
-Si el dominio final es otro, cambia esos cinco valores:
+Confirmado: **itura.studio** (registrado en GoDaddy; el correo info@itura.studio está en Google Workspace).
+El sitio lo usa en cinco lugares: `canonical`, `og:url` y `og:image` en `index.html`, `robots.txt` y `sitemap.xml`:
 
 ```bash
 grep -rn "https://itura.studio" index.html robots.txt sitemap.xml
 ```
+
+El manual de marca v4 escribe `iturastudio.com` (págs. 28, 29, 31, 33, 36, 40 y 44): conviene corregirlo a `itura.studio`.
 
 ## Imágenes
 
@@ -130,7 +131,7 @@ Lighthouse no puede medirlas con el servidor local.
 ## Pendientes
 
 - **Formspree**: envío de prueba con el formulario nuevo (`xqppoavv`) y desactivar el viejo `'mrevpogj'` (ver "Formulario").
-- **Dominio** `itura.studio` sin confirmar; el manual usa `iturastudio.com`.
+- **Manual de marca** (fuera del sitio): cambiar `iturastudio.com` por `itura.studio` en las págs. 28, 29, 31, 33, 36, 40 y 44.
 - **Usuario de Instagram** `@itura.studio` sin confirmar (enlace en contacto y en el menú móvil).
 - **Proyectos**: nombre, ciudad, tipología y año de 01 y 02 (en `index.html` están marcados con `data-pendiente`).
   Los textos alternativos describen lo que se ve en la foto; falta añadirles nombre, ciudad y año.
