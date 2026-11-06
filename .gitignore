@@ -1,0 +1,15 @@
+# iturallc — solo se versiona lo necesario para publicar la página (web_page/).
+# El resto de itura.studio/ (kit de marca, manual, logos de impresión, zips,
+# capturas y prompt) queda fuera del repo.
+# Para incluir algo más de la raíz, añade una línea:  !/nombre
+
+/*
+!/.gitignore
+!/README.md
+!/web_page/
+# Reservado por si se publica con GitHub Pages mediante un workflow
+!/.github/
+
+# Sistema y temporales de PowerPoint
+.DS_Store
+~$*

@@ -1,0 +1,95 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — CSS Custom Properties (Design Tokens)
+   El primer bloque es brand-web/tokens/tokens.css sin cambios.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* iTura studio — tokens de marca */
+  --color-carbon: #11110F;      /* 55 %  fondos, texto, símbolo */
+  --color-grafito: #2C2B28;     /* 10 %  superficies y líneas */
+  --color-travertino: #D8CFBF;  /* 15 %  fondos cálidos */
+  --color-marfil: #F4F2EC;      /* 15 %  fondos claros */
+  --color-laton: #B5935C;       /*  5 %  acentos y detalles (nunca texto sobre claro) */
+  --color-piedra: #6E6A63;      /* texto secundario sobre claro */
+  --color-piedra-clara: #9A958B;/* texto secundario sobre oscuro */
+
+  --font-family: 'Jost', 'Futura', 'Century Gothic', sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  --fs-display: clamp(2.75rem, 6vw, 4.5rem); /* 44-72 px, Light */
+  --fs-h1: 3.5rem;    /* 56/64 Light */
+  --fs-h2: 2rem;      /* 32/40 Light */
+  --fs-body: 1.0625rem; /* 17/28 Light */
+  --lh-body: 1.65;
+  --fs-label: 0.75rem;  /* etiquetas: Medium, mayúsculas */
+  --ls-label: 0.3em;
+
+  --container: 1200px;
+  --gutter: 24px;
+  --columns: 12;
+  --radius: 0;          /* sin esquinas redondeadas */
+  --border: 1px solid currentColor;
+}
+
+/* ── Tokens del sitio (derivados, no forman parte del kit) ───── */
+:root {
+  /* Funcional: errores del formulario (5,8 : 1 sobre carbón) */
+  --color-error: #D9705F;
+
+  /* Tema por defecto = claro. Las secciones lo cambian con .theme-* */
+  --bg:          var(--color-marfil);
+  --fg:          var(--color-carbon);
+  --fg-muted:    var(--color-piedra);      /* 4,8 : 1 sobre marfil */
+  --label-color: var(--color-piedra);
+  --line:        var(--color-travertino);  /* filetes decorativos */
+  --focus:       var(--color-carbon);
+
+  /* Tipografía complementaria */
+  --lh-display: 1.05;
+  --lh-h2:      1.25;                                    /* 32/40 */
+  --fs-h3:      1.5rem;                                  /* 24 px */
+  --fs-lead:    clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem); /* 20-24 px */
+  --fs-small:   0.9375rem;                               /* 15 px */
+
+  /* Espaciado */
+  --sp-1:  0.25rem;   --sp-2:  0.50rem;   --sp-3:  0.75rem;
+  --sp-4:  1.00rem;   --sp-5:  1.25rem;   --sp-6:  1.50rem;
+  --sp-8:  2.00rem;   --sp-10: 2.50rem;   --sp-12: 3.00rem;
+  --sp-16: 4.00rem;   --sp-20: 5.00rem;   --sp-24: 6.00rem;
+
+  --section-y: clamp(80px, 10vw, 144px);
+
+  /* Layout */
+  --page-margin: 24px;
+  --nav-h:       84px;
+  /* Ancho de la caja del SVG horizontal: 137 px → 122 px de dibujo
+     (mínimo de marca: 120 px). Con la altura de la «x» como área de
+     protección arriba y abajo, el logo cabe en --nav-h. */
+  --logo-w:      137px;
+  --wordmark-w:  200px;
+  --franja-h:    56px;
+
+  /* Movimiento */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);   /* expo out */
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);  /* quart in-out */
+  --t-fast:      0.2s  var(--ease-out);
+  --t-base:      0.45s var(--ease-out);
+  --t-slow:      0.7s  var(--ease-out);
+  --t-reveal:    1s    var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  :root { --page-margin: 40px; }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-margin: 48px;
+    --nav-h:       92px;
+    --logo-w:      150px;   /* 134 px de dibujo */
+    --wordmark-w:  224px;
+    --franja-h:    64px;
+  }
+}

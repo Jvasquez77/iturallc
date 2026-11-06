@@ -1,0 +1,127 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Footer
+   Fondo carbón, wordmark marfil-latón y franja de pórticos.
+   ══════════════════════════════════════════════════════════════ */
+
+.footer {
+  padding-top: var(--sp-16);
+}
+
+/* Filete superior: separa el pie del contacto (ambos en carbón).
+   Va en ::before para medir lo mismo que el contenido. */
+.footer__inner::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-bottom: var(--sp-16);
+  background-color: var(--line);
+}
+
+/* Cierre de marca */
+.footer__closing {
+  max-width: 14ch;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+
+.footer__bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-10);
+  margin-top: var(--sp-16);
+}
+
+/* Wordmark: el SVG trae 29 u de aire propio (5,36 % del ancho);
+   se compensa para alinear el dibujo al margen. */
+.footer__brand {
+  display: block;
+  width: fit-content;
+  margin-inline-start: calc(var(--wordmark-w) * -0.0536);
+}
+.footer__wordmark {
+  width: var(--wordmark-w);
+  height: auto;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-8);
+}
+.footer__link {
+  display: inline-block;
+  padding-block: var(--sp-2);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  color: var(--fg);
+  transition: color var(--t-base);
+}
+@media (hover: hover) {
+  .footer__link:hover { color: var(--color-laton); }
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+}
+.footer__contact a {
+  align-self: flex-start;
+  color: var(--fg);
+}
+
+/* ── Franja de pórticos ──────────────────────────────────────────
+   portico-franja_laton.svg en repetición horizontal. La caja de
+   cada mosaico mide 1200 u (el dibujo, 1182,82 u): el SVG se centra
+   sin deformarse y deja entre mosaicos el mismo hueco que entre
+   pórticos, así la serie no muestra costura. */
+.footer__franja {
+  position: relative;
+  height: var(--franja-h);
+  margin-top: var(--sp-16);
+}
+.footer__franja::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/brand/patrones/portico-franja_laton.svg");
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  background-size: calc(var(--franja-h) * 1200 / 155.36) var(--franja-h);
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-8);
+  padding-block: var(--sp-6) var(--sp-8);
+  color: var(--fg-muted);
+}
+/* El nombre nunca va en mayúsculas: «iTura studio» siempre exacto */
+.footer__copy { font-size: var(--fs-small); }
+.footer__tagline {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .footer__bar {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gutter);
+  }
+  .footer__links { gap: var(--sp-2) var(--sp-10); }
+  .footer__contact { text-align: right; }
+  .footer__contact a { align-self: flex-end; }
+}

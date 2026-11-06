@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iTura studio — Arquitectura e interiorismo</title>
+  <meta name="description" content="iTura studio es un estudio de arquitectura e interiorismo. Espacios precisos, elegantes y construidos para durar, con bajo impacto ambiental.">
+  <meta name="theme-color" content="#11110F">
+  <link rel="canonical" href="https://itura.studio/">
+
+  <!-- Open Graph (dominio pendiente de confirmar: ver README) -->
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="iTura studio">
+  <meta property="og:title"        content="iTura studio — Arquitectura e interiorismo">
+  <meta property="og:description"  content="Espacios que permanecen. Arquitectura e interiorismo de bajo impacto ambiental.">
+  <meta property="og:url"          content="https://itura.studio/">
+  <meta property="og:image"        content="https://itura.studio/assets/images/brand/og-image-1200x630.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="Logotipo de iTura studio sobre fondo carbón con la frase «Arquitectura que permanece».">
+  <meta name="twitter:card"        content="summary_large_image">
+
+  <!-- Favicons + manifest -->
+  <link rel="icon" href="assets/images/brand/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/brand/favicon/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/brand/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Con JS, las animaciones de aparición pueden ocultar el contenido antes de mostrarlo -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- ── Google Fonts: Jost 300 · 400 · 500 ────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- ── CSS: Tokens → Global → Componentes ────────────────── -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="components/nav.css">
+  <link rel="stylesheet" href="components/hero.css">
+  <link rel="stylesheet" href="components/portfolio.css">
+  <link rel="stylesheet" href="components/about.css">
+  <link rel="stylesheet" href="components/values.css">
+  <link rel="stylesheet" href="components/process.css">
+  <link rel="stylesheet" href="components/contact.css">
+  <link rel="stylesheet" href="components/footer.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVEGACIÓN (fixed)
+     ════════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav" role="banner">
+  <nav class="nav__inner container" aria-label="Navegación principal">
+
+    <!-- Logo: SVG maestro horizontal, carbón sobre fondo claro -->
+    <a href="#hero" class="nav__brand">
+      <img class="nav__logo"
+           src="assets/images/brand/logos/itura-studio_horizontal_carbon.svg"
+           alt="iTura studio"
+           width="150" height="66">
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav__links" role="list">
+      <li><a href="#portafolio" class="nav__link">Proyectos</a></li>
+      <li><a href="#sobre-mi"   class="nav__link">Estudio</a></li>
+      <li><a href="#proceso"    class="nav__link">Proceso</a></li>
+      <li><a href="#contacto"   class="nav__link">Contacto</a></li>
+    </ul>
+
+    <!-- Hamburger (mobile) -->
+    <button
+      class="nav__hamburger"
+      id="js-hamburger"
+      type="button"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="js-mobile-menu"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  <div class="nav__mobile" id="js-mobile-menu">
+    <nav aria-label="Menú móvil">
+      <ul class="nav__mobile-links" role="list">
+        <li><a href="#portafolio" class="nav__mobile-link"><span class="nav__mobile-num" aria-hidden="true">01</span>Proyectos</a></li>
+        <li><a href="#sobre-mi"   class="nav__mobile-link"><span class="nav__mobile-num" aria-hidden="true">02</span>Estudio</a></li>
+        <li><a href="#proceso"    class="nav__mobile-link"><span class="nav__mobile-num" aria-hidden="true">03</span>Proceso</a></li>
+        <li><a href="#contacto"   class="nav__mobile-link"><span class="nav__mobile-num" aria-hidden="true">04</span>Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="nav__mobile-contact">
+      <a href="mailto:info@itura.studio" class="link">info@itura.studio</a>
+      <a href="https://www.instagram.com/itura.studio/" target="_blank" rel="noopener noreferrer" class="link">@itura.studio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+    </div>
+  </div>
+</header>
+
+
+<main id="main-content">
+
+  <!-- ════════════════════════════════════════════════════════════
+       1. HERO
+       El nombre de marca va solo como SVG (logo de la cabecera).
+       ════════════════════════════════════════════════════════════ -->
+  <section class="hero theme-light" id="hero" aria-labelledby="hero-title">
+    <div class="hero__inner container">
+
+      <div class="hero__content">
+        <p class="label hero__label">Arquitectura · Interiorismo</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line"><span>Espacios que</span></span>
+          <span class="hero__line"><span>permanecen</span></span>
+        </h1>
+        <p class="hero__statement">Arquitectura e interiorismo de bajo impacto ambiental.</p>
+        <a href="#portafolio" class="btn btn--solid hero__cta">
+          <span class="btn__text">Ver proyectos</span>
+        </a>
+      </div>
+
+      <!-- proyecto-01: recorte de la mitad «Después» (la foto original es un antes/después) -->
+      <figure class="hero__media">
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/images/portfolio/proyecto-01-hero-360.webp 360w,
+                          assets/images/portfolio/proyecto-01-hero.webp 490w"
+                  sizes="(min-width: 1248px) 486px, (min-width: 1024px) 38vw, 100vw">
+          <img src="assets/images/portfolio/proyecto-01-hero.jpg"
+               srcset="assets/images/portfolio/proyecto-01-hero-360.jpg 360w,
+                       assets/images/portfolio/proyecto-01-hero.jpg 490w"
+               sizes="(min-width: 1248px) 486px, (min-width: 1024px) 38vw, 100vw"
+               width="490" height="630"
+               alt="Baño renovado por el estudio: revestimiento de piedra clara, espejo retroiluminado, nicho iluminado y lavabo negro sobre mueble de madera."
+               fetchpriority="high">
+        </picture>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       2. PORTAFOLIO
+       Solo proyectos con foto real (proyecto-01 y proyecto-02).
+       PENDIENTE: nombre, ciudad, tipología y año de cada proyecto;
+       proyectos 03, 04 y conceptos cuando haya foto (ver README).
+       ════════════════════════════════════════════════════════════ -->
+  <section class="portfolio theme-dark" id="portafolio" aria-labelledby="portfolio-heading">
+    <div class="portfolio__inner container grid">
+
+      <header class="portfolio__header">
+        <p class="label reveal-up">Portafolio</p>
+        <h2 class="section-title reveal-up" id="portfolio-heading">Proyectos seleccionados</h2>
+        <p class="portfolio__sub reveal-up">
+          Donde la técnica y el concepto convergen en espacios que duran.
+        </p>
+      </header>
+
+      <div class="portfolio__grid">
+
+        <!-- ╔══════════════════════════════╗
+             ║  PROYECTO 01                 ║
+             ╚══════════════════════════════╝ -->
+        <article class="project-card reveal" data-project="01">
+          <figure class="project-card__media reveal-media">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/images/portfolio/proyecto-01-400.webp 400w,
+                              assets/images/portfolio/proyecto-01.webp 710w"
+                      sizes="(min-width: 1248px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 100vw">
+              <img class="project-card__img"
+                   src="assets/images/portfolio/proyecto-01.jpg"
+                   srcset="assets/images/portfolio/proyecto-01-400.jpg 400w,
+                           assets/images/portfolio/proyecto-01.jpg 710w"
+                   sizes="(min-width: 1248px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 100vw"
+                   width="710" height="1268"
+                   alt="Proyecto 01, antes y después. Arriba, el baño original con azulejos verdes y mampara de vidrio estriado; abajo, el resultado con piedra clara, espejo retroiluminado y lavabo negro sobre mueble de madera."
+                   loading="lazy" decoding="async">
+            </picture>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">01</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-pendiente="nombre">Nombre del proyecto</h3>
+              <p class="project-card__info">
+                <span data-pendiente="ciudad">Ciudad</span> ·
+                <span data-pendiente="tipologia">Tipología</span> ·
+                <span data-pendiente="ano">Año</span>
+              </p>
+            </div>
+          </div>
+        </article><!-- /PROYECTO 01 -->
+
+
+        <!-- ╔══════════════════════════════╗
+             ║  PROYECTO 02                 ║
+             ╚══════════════════════════════╝ -->
+        <article class="project-card reveal" data-project="02">
+          <figure class="project-card__media reveal-media">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/images/portfolio/proyecto-02-400.webp 400w,
+                              assets/images/portfolio/proyecto-02.webp 714w"
+                      sizes="(min-width: 1248px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 100vw">
+              <img class="project-card__img"
+                   src="assets/images/portfolio/proyecto-02.jpg"
+                   srcset="assets/images/portfolio/proyecto-02-400.jpg 400w,
+                           assets/images/portfolio/proyecto-02.jpg 714w"
+                   sizes="(min-width: 1248px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 100vw"
+                   width="714" height="1268"
+                   alt="Proyecto 02, antes y después. Arriba, el baño original con azulejos azules y mampara de vidrio estriado; abajo, el resultado con revestimiento tipo travertino, luz perimetral, espejo redondo y ducha con mampara de vidrio."
+                   loading="lazy" decoding="async">
+            </picture>
+          </figure>
+
+          <div class="project-card__meta">
+            <span class="project-card__index">02</span>
+            <div class="project-card__body">
+              <h3 class="project-card__title" data-pendiente="nombre">Nombre del proyecto</h3>
+              <p class="project-card__info">
+                <span data-pendiente="ciudad">Ciudad</span> ·
+                <span data-pendiente="tipologia">Tipología</span> ·
+                <span data-pendiente="ano">Año</span>
+              </p>
+            </div>
+          </div>
+        </article><!-- /PROYECTO 02 -->
+
+      </div><!-- /portfolio__grid -->
+    </div>
+  </section><!-- /PORTAFOLIO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       3. ESTUDIO (#sobre-mi)
+       Texto del estudio · fundadora · visión y misión
+       ════════════════════════════════════════════════════════════ -->
+  <section class="about theme-light" id="sobre-mi" aria-labelledby="about-heading">
+
+    <div class="about__intro container grid">
+      <div class="about__head">
+        <p class="label reveal-up">Estudio</p>
+        <h2 class="section-title reveal-up" id="about-heading">Sobre nosotros</h2>
+      </div>
+      <p class="about__lead lead reveal-up">
+        iTura studio es un estudio de arquitectura e interiorismo fundado con el
+        propósito de crear espacios que unan la precisión técnica con una estética
+        atemporal. Con una visión centrada en el mínimo impacto ambiental y el máximo
+        valor estético, el estudio opera desde la disciplina del detalle y la certeza
+        de que menos, hecho con extraordinaria calidad, siempre es más.
+      </p>
+    </div>
+
+    <div class="about__founder theme-warm">
+      <div class="about__founder-inner container grid">
+
+        <figure class="about__photo reveal-media">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/images/portfolio/irlanda1-retrato-400.webp 400w,
+                            assets/images/portfolio/irlanda1-retrato.webp 608w"
+                    sizes="(min-width: 1248px) 486px, (min-width: 1024px) 38vw, (min-width: 528px) 480px, 100vw">
+            <img src="assets/images/portfolio/irlanda1-retrato.jpg"
+                 srcset="assets/images/portfolio/irlanda1-retrato-400.jpg 400w,
+                         assets/images/portfolio/irlanda1-retrato.jpg 608w"
+                 sizes="(min-width: 1248px) 486px, (min-width: 1024px) 38vw, (min-width: 528px) 480px, 100vw"
+                 width="608" height="760"
+                 alt="Irlanda, fundadora de iTura studio, en el estudio junto a planos y maquetas de arquitectura."
+                 loading="lazy" decoding="async">
+          </picture>
+        </figure>
+
+        <div class="about__founder-text">
+          <p class="label reveal-up">Fundadora</p>
+          <h3 class="about__name reveal-up">Irlanda</h3>
+          <p class="about__role reveal-up">Arquitecta &amp; Diseñadora de Interiores</p>
+
+          <div class="about__purpose">
+            <div class="about__purpose-item reveal-up">
+              <h3 class="label about__purpose-title">Visión</h3>
+              <p class="about__purpose-text">
+                Ser un estudio de referencia en el diseño arquitectónico e interiorista,
+                reconocido por proyectos que trascienden tendencias y permanecen
+                relevantes a través del tiempo.
+              </p>
+            </div>
+            <div class="about__purpose-item reveal-up">
+              <h3 class="label about__purpose-title">Misión</h3>
+              <p class="about__purpose-text">
+                Diseñar espacios habitables de alto impacto y bajo impacto ambiental:
+                precisos, elegantes y construidos para durar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- /ESTUDIO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       4. VALORES
+       ════════════════════════════════════════════════════════════ -->
+  <section class="values theme-dark" id="valores" data-nav-target="#sobre-mi" aria-labelledby="values-heading">
+    <div class="container">
+
+      <div class="values__header">
+        <p class="label reveal-up">Valores</p>
+        <h2 class="section-title reveal-up" id="values-heading">Menos, siempre es más.</h2>
+      </div>
+
+      <ol class="values__list" role="list">
+        <li class="value reveal-up">
+          <span class="value__num" aria-hidden="true">I</span>
+          <h3 class="value__title">Innovación</h3>
+          <p class="value__desc">Soluciones que redefinen el espacio desde los principios, no desde las tendencias.</p>
+        </li>
+        <li class="value reveal-up">
+          <span class="value__num" aria-hidden="true">II</span>
+          <h3 class="value__title">Precisión</h3>
+          <p class="value__desc">Cada decisión de diseño es deliberada y se ejecuta con exactitud técnica.</p>
+        </li>
+        <li class="value reveal-up">
+          <span class="value__num" aria-hidden="true">III</span>
+          <h3 class="value__title">Impacto</h3>
+          <p class="value__desc">Proyectos que transforman la manera de vivir, trabajar y experimentar un lugar.</p>
+        </li>
+        <li class="value reveal-up">
+          <span class="value__num" aria-hidden="true">IV</span>
+          <h3 class="value__title">Durabilidad</h3>
+          <p class="value__desc">Arquitectura concebida para el largo plazo.</p>
+        </li>
+      </ol>
+
+    </div>
+  </section><!-- /VALORES -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       5. PROCESO
+       Frases de cada paso: ejemplos de tono del manual (pág. 11)
+       ════════════════════════════════════════════════════════════ -->
+  <section class="process theme-warm" id="proceso" aria-labelledby="process-heading">
+    <div class="container">
+
+      <div class="process__header">
+        <p class="label reveal-up">Proceso</p>
+        <h2 class="section-title reveal-up" id="process-heading">Cómo trabajamos</h2>
+      </div>
+
+      <ol class="process__steps" role="list">
+        <li class="step reveal-up">
+          <img class="step__icon" src="assets/images/brand/iconos/itura-studio_icono-proceso_carbon.svg" alt="" width="48" height="48">
+          <span class="step__num">01</span>
+          <h3 class="step__title">Escuchar</h3>
+          <p class="step__desc">Cada proyecto empieza por escuchar cómo vives.</p>
+        </li>
+        <li class="step reveal-up">
+          <img class="step__icon" src="assets/images/brand/iconos/itura-studio_icono-planos_carbon.svg" alt="" width="48" height="48">
+          <span class="step__num">02</span>
+          <h3 class="step__title">Diseñar</h3>
+          <p class="step__desc">Diseñamos con luz natural y materiales locales.</p>
+        </li>
+        <li class="step reveal-up">
+          <img class="step__icon" src="assets/images/brand/iconos/itura-studio_icono-arquitectura_carbon.svg" alt="" width="48" height="48">
+          <span class="step__num">03</span>
+          <h3 class="step__title">Construir</h3>
+          <p class="step__desc">Te acompañamos en cada etapa de la obra.</p>
+        </li>
+      </ol>
+
+    </div>
+  </section><!-- /PROCESO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       6. CONTACTO + FORMULARIO
+       ════════════════════════════════════════════════════════════ -->
+  <section class="contact theme-dark" id="contacto" aria-labelledby="contact-heading">
+    <div class="contact__inner container grid">
+
+      <!-- Información de contacto -->
+      <div class="contact__info">
+        <p class="label reveal-up">Contacto</p>
+
+        <h2 class="section-title contact__heading reveal-up" id="contact-heading">
+          Hablemos de tu proyecto.
+        </h2>
+
+        <p class="contact__intro reveal-up">
+          Cada proyecto comienza con una conversación.
+          Cuéntanos qué tienes en mente.
+        </p>
+
+        <dl class="contact__details">
+          <div class="contact__detail reveal-up">
+            <dt class="contact__detail-label">Correo</dt>
+            <dd><a href="mailto:info@itura.studio" class="contact__detail-value link">info@itura.studio</a></dd>
+          </div>
+          <div class="contact__detail reveal-up">
+            <dt class="contact__detail-label">Instagram</dt>
+            <dd>
+              <a href="https://www.instagram.com/itura.studio/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="contact__detail-value link">@itura.studio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <p class="contact__note reveal-up">
+          Respondemos en menos de 48 horas.
+        </p>
+      </div><!-- /info -->
+
+
+      <!-- ──────────────────────────────────────────────────────
+           FORMULARIO DE CONTACTO
+           ──────────────────────────────────────────────────────
+           INTEGRACIÓN DE EMAIL — Edita CONFIG en assets/js/main.js
+           Activación paso a paso: README.md
+
+           · Formspree → pon el Form ID en CONFIG.formspreeId
+           · EmailJS   → pon Service/Template/PublicKey en CONFIG
+           · API propia → pon la URL en CONFIG.apiEndpoint
+           ────────────────────────────────────────────────────── -->
+      <div class="contact__form-wrap reveal-right">
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="#"
+          method="POST"
+          novalidate
+          aria-label="Formulario de contacto"
+        >
+          <!-- Honeypot anti-spam de Formspree (oculto; las personas no lo ven) -->
+          <input
+            type="text"
+            name="_gotcha"
+            class="form-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+          >
+
+          <!-- Nombre + Email en la misma fila -->
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="form-name" class="form-label">
+                Nombre completo <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="form-name"
+                name="name"
+                class="form-input"
+                placeholder="Tu nombre"
+                required
+                autocomplete="name"
+                aria-required="true"
+                aria-describedby="form-name-error"
+              >
+              <span class="form-error" id="form-name-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">
+                Correo electrónico <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="form-input"
+                placeholder="tu@correo.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="form-email-error"
+              >
+              <span class="form-error" id="form-email-error" aria-live="polite"></span>
+            </div>
+
+          </div><!-- /form-row -->
+
+          <!-- Código de área + Teléfono -->
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="form-area-code" class="form-label">
+                Código de área <span aria-hidden="true">*</span>
+              </label>
+              <div class="form-select">
+                <select
+                  id="form-area-code"
+                  name="areaCode"
+                  class="form-input"
+                  required
+                  aria-required="true"
+                  aria-describedby="form-area-code-error"
+                >
+                  <option value="">Selecciona</option>
+                  <option value="+58">+58 Venezuela</option>
+                  <option value="+1">+1 Estados Unidos / Canadá</option>
+                  <option value="+34">+34 España</option>
+                  <option value="+39">+39 Italia</option>
+                  <option value="+57">+57 Colombia</option>
+                  <option value="+52">+52 México</option>
+                  <option value="+54">+54 Argentina</option>
+                  <option value="+56">+56 Chile</option>
+                  <option value="+51">+51 Perú</option>
+                </select>
+              </div>
+              <span class="form-error" id="form-area-code-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-phone" class="form-label">
+                Número telefónico <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="tel"
+                id="form-phone"
+                name="phone"
+                class="form-input"
+                placeholder="4121234567"
+                required
+                autocomplete="tel-national"
+                inputmode="tel"
+                aria-required="true"
+                aria-describedby="form-phone-error"
+              >
+              <span class="form-error" id="form-phone-error" aria-live="polite"></span>
+            </div>
+
+          </div><!-- /form-row -->
+
+          <!-- Asunto -->
+          <div class="form-group">
+            <label for="form-subject" class="form-label">
+              Asunto <span aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="form-subject"
+              name="subject"
+              class="form-input"
+              placeholder="¿En qué podemos ayudarte?"
+              required
+              aria-required="true"
+              aria-describedby="form-subject-error"
+            >
+            <span class="form-error" id="form-subject-error" aria-live="polite"></span>
+          </div>
+
+          <!-- Mensaje -->
+          <div class="form-group">
+            <label for="form-message" class="form-label">
+              Mensaje <span aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="form-message"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="Cuéntanos sobre tu proyecto…"
+              rows="5"
+              required
+              aria-required="true"
+              aria-describedby="form-message-error"
+            ></textarea>
+            <span class="form-error" id="form-message-error" aria-live="polite"></span>
+          </div>
+
+          <!-- CAPTCHA simple: desliza hasta 100 para verificar que no eres un robot -->
+          <div class="form-group form-captcha">
+            <label for="form-captcha" class="form-label">
+              Verificación <span aria-hidden="true">*</span>
+            </label>
+            <p class="form-captcha__hint" id="form-captcha-hint">Desliza el control hasta 100 para verificar que no eres un bot.</p>
+            <div class="form-captcha__control">
+              <input
+                type="range"
+                id="form-captcha"
+                name="captchaSlider"
+                min="0"
+                max="100"
+                step="1"
+                value="0"
+                class="form-captcha__range"
+                required
+                aria-required="true"
+                aria-describedby="form-captcha-hint form-captcha-value form-captcha-error"
+              >
+              <span class="form-captcha__value" id="form-captcha-value">0%</span>
+            </div>
+            <span class="form-error" id="form-captcha-error" aria-live="polite"></span>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            id="js-form-submit"
+            class="btn form-submit"
+          >
+            <span class="btn__text">Enviar mensaje</span>
+            <span class="btn__loading" aria-hidden="true">Enviando…</span>
+          </button>
+
+          <!-- Status (success / info / error) -->
+          <div
+            class="form-status"
+            id="js-form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+        </form>
+      </div><!-- /contact__form-wrap -->
+
+    </div>
+  </section><!-- /CONTACTO -->
+
+</main>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer theme-dark" role="contentinfo">
+  <div class="footer__inner container">
+
+    <p class="footer__closing reveal-up">Arquitectura que permanece.</p>
+
+    <div class="footer__bar">
+      <!-- Wordmark: SVG maestro marfil-latón -->
+      <a href="#hero" class="footer__brand">
+        <img class="footer__wordmark"
+             src="assets/images/brand/logos/itura-studio_wordmark_marfil-laton.svg"
+             alt="iTura studio"
+             width="224" height="53"
+             loading="lazy">
+      </a>
+
+      <nav aria-label="Pie de página">
+        <ul class="footer__links" role="list">
+          <li><a href="#portafolio" class="footer__link">Proyectos</a></li>
+          <li><a href="#sobre-mi"   class="footer__link">Estudio</a></li>
+          <li><a href="#proceso"    class="footer__link">Proceso</a></li>
+          <li><a href="#contacto"   class="footer__link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <a href="mailto:info@itura.studio" class="link">info@itura.studio</a>
+        <span>@itura.studio · #iTuraStudio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Franja de pórticos (patrón de marca, latón sobre carbón) -->
+  <div class="footer__franja reveal-wipe" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="footer__legal">
+      <p class="footer__copy">© 2026 iTura studio</p>
+      <p class="footer__tagline">Arquitectura · Interiorismo</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════════ -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

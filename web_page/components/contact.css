@@ -1,0 +1,254 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Contact & Form
+   Fondo carbón. Bordes de campo en piedra (3,5 : 1, válido para
+   componentes de interfaz); foco y verificación en latón.
+   ══════════════════════════════════════════════════════════════ */
+
+.contact {
+  padding-block: var(--section-y);
+}
+
+.contact__inner { row-gap: var(--sp-16); }
+
+/* ── Left: contact info ──────────────────────────────────────── */
+.contact__heading {
+  max-width: 12ch;
+  margin-bottom: var(--sp-6);
+}
+
+.contact__intro {
+  max-width: 36ch;
+  margin-bottom: var(--sp-12);
+  color: var(--fg-muted);
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-10);
+}
+.contact__detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.contact__detail-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--label-color);
+}
+.contact__detail-value {
+  font-size: var(--fs-lead);
+  color: var(--fg);
+}
+
+.contact__note {
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+}
+
+/* ── Right: form ─────────────────────────────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.form-row {
+  display: grid;
+  gap: var(--sp-8) var(--gutter);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.form-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--sp-3) 0 calc(var(--sp-3) + 1px);
+  border: 0;
+  border-bottom: 1px solid var(--color-piedra);
+  border-radius: var(--radius);
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  color: var(--fg);
+  outline: none;
+  transition: border-color var(--t-base);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input::placeholder { color: var(--color-piedra-clara); opacity: 1; }
+/* Foco: el filete pasa a 2 px de latón (sin cambiar la altura) */
+.form-input:focus {
+  padding-bottom: var(--sp-3);
+  border-bottom: 2px solid var(--color-laton);
+}
+.form-input.is-error { border-bottom-color: var(--color-error); }
+
+.form-textarea {
+  min-height: 132px;
+  resize: vertical;
+  line-height: var(--lh-body);
+}
+
+/* Select sin flecha nativa; el chevrón se dibuja con bordes */
+.form-select { position: relative; }
+.form-select::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: 4px;
+  inset-block-start: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--fg-muted);
+  border-bottom: 1px solid var(--fg-muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+.form-select .form-input {
+  padding-inline-end: var(--sp-8);
+  cursor: pointer;
+}
+.form-select option {
+  background-color: var(--color-carbon);
+  color: var(--color-marfil);
+}
+
+/* Error messages */
+.form-error {
+  min-height: 1.5em;
+  font-size: var(--fs-small);
+  color: var(--color-error);
+}
+
+/* ── Slider captcha ──────────────────────────────────────────── */
+.form-captcha {
+  padding: var(--sp-6);
+  border: 1px solid var(--color-grafito);
+}
+.form-captcha__hint {
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+}
+.form-captcha__control {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+}
+
+/* Pista de 1 px y tirador cuadrado de latón (el punto de la i) */
+.form-captcha__range {
+  width: 100%;
+  height: 32px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-captcha__range::-webkit-slider-runnable-track {
+  height: 1px;
+  background-color: var(--color-piedra-clara);
+}
+.form-captcha__range::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: -8.5px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--color-laton);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-captcha__range::-moz-range-track {
+  height: 1px;
+  background-color: var(--color-piedra-clara);
+}
+.form-captcha__range::-moz-range-progress {
+  height: 1px;
+  background-color: var(--color-laton);
+}
+.form-captcha__range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--color-laton);
+}
+.form-captcha__range.is-error::-webkit-slider-thumb { background-color: var(--color-error); }
+.form-captcha__range.is-error::-moz-range-thumb     { background-color: var(--color-error); }
+
+.form-captcha__value {
+  min-width: 4ch;
+  text-align: right;
+  font-size: var(--fs-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-muted);
+  transition: color var(--t-base);
+}
+.form-captcha.is-verified { border-color: var(--color-laton); }
+.form-captcha.is-verified .form-captcha__value { color: var(--color-laton); }
+
+/* Anti-spam honeypot (Formspree _gotcha) */
+.form-honeypot { display: none !important; }
+
+/* ── Submit ──────────────────────────────────────────────────── */
+.form-submit {
+  align-self: flex-start;
+  margin-top: var(--sp-2);
+}
+
+/* Loading state swap */
+.form-submit .btn__loading                { display: none; margin-inline-end: calc(-1 * var(--ls-label)); }
+.form-submit.is-loading .btn__text        { display: none; }
+.form-submit.is-loading .btn__loading     { display: inline; }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Status message ──────────────────────────────────────────── */
+.form-status {
+  min-height: 1.5em;
+  font-size: var(--fs-body);
+}
+.form-status:empty { min-height: 0; }
+.form-status--success,
+.form-status--info {
+  padding-inline-start: var(--sp-5);
+  border-inline-start: 2px solid var(--color-laton);
+  color: var(--fg);
+}
+.form-status--error {
+  padding-inline-start: var(--sp-5);
+  border-inline-start: 2px solid var(--color-error);
+  color: var(--color-error);
+}
+.form-status a {
+  color: var(--color-laton);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 600px) {
+  .form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .contact__info { grid-column: 1 / span 5; }
+  .contact__form-wrap { grid-column: 7 / -1; }
+}

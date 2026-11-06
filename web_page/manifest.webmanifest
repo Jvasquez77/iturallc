@@ -1,0 +1,17 @@
+{
+  "name": "iTura studio — Arquitectura e interiorismo",
+  "short_name": "iTura",
+  "description": "Estudio de arquitectura e interiorismo de bajo impacto ambiental.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#11110F",
+  "background_color": "#F4F2EC",
+  "icons": [
+    { "src": "assets/images/brand/favicon/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/images/brand/favicon/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/images/brand/favicon/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/images/brand/favicon/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

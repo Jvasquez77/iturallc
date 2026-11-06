@@ -1,0 +1,79 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: About / Estudio
+   Texto del estudio (marfil) + fundadora, visión y misión
+   (banda travertino).
+   ══════════════════════════════════════════════════════════════ */
+
+.about {
+  padding-top: var(--section-y);
+}
+
+/* ── Texto del estudio ───────────────────────────────────────── */
+.about__intro {
+  row-gap: var(--sp-8);
+  padding-bottom: var(--section-y);
+}
+.about__lead {
+  max-width: 46ch;
+  color: var(--fg);
+}
+
+/* ── Fundadora + propósito ───────────────────────────────────── */
+.about__founder {
+  padding-block: var(--section-y);
+}
+.about__founder-inner { row-gap: var(--sp-12); }
+
+.about__photo {
+  overflow: hidden;
+  max-width: 480px;
+}
+.about__photo img {
+  width: 100%;
+  height: auto;
+}
+
+.about__name {
+  font-size: clamp(2.5rem, 2rem + 2vw, var(--fs-h1));
+  line-height: 1.1;
+  font-weight: var(--fw-light);
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+.about__role {
+  margin-top: var(--sp-3);
+  color: var(--fg-muted);
+}
+
+.about__purpose {
+  display: grid;
+  gap: var(--sp-10);
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-10);
+  border-top: 1px solid var(--line);
+}
+.about__purpose-title { margin-bottom: var(--sp-4); }
+.about__purpose-text {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+/* Tablet: visión y misión a dos columnas bajo la foto.
+   Escritorio: apiladas en la columna derecha, junto al retrato. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .about__purpose { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter); }
+}
+
+@media (min-width: 1024px) {
+  .about__head { grid-column: 1 / span 4; }
+  .about__lead { grid-column: 5 / -1; }
+
+  .about__founder-inner { align-items: end; }
+  .about__photo {
+    grid-column: 1 / span 5;
+    max-width: none;
+  }
+  .about__founder-text { grid-column: 7 / -1; }
+}

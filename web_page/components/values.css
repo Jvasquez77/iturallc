@@ -1,0 +1,60 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Valores
+   ══════════════════════════════════════════════════════════════ */
+
+.values {
+  padding-block: var(--section-y);
+}
+
+.values__header { margin-bottom: var(--sp-16); }
+
+.values__list {
+  display: grid;
+  gap: var(--sp-12) var(--gutter);
+}
+
+.value {
+  position: relative;
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+}
+/* Filete de latón que se dibuja al aparecer el valor */
+.value::before {
+  content: '';
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline-start: 0;
+  width: 48px;
+  height: 1px;
+  background-color: var(--color-laton);
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-out);
+  transition-delay: inherit;
+}
+.js .value::before         { transform: scaleX(0); }
+.js .value.visible::before { transform: none; }
+
+.value__num {
+  display: block;
+  margin-bottom: var(--sp-6);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  font-weight: var(--fw-light);
+  color: var(--color-laton);   /* latón sobre carbón: 6,6 : 1 */
+}
+.value__title {
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  font-weight: var(--fw-light);
+  color: var(--fg);
+}
+.value__desc { color: var(--fg-muted); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 600px) {
+  .values__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .values__list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

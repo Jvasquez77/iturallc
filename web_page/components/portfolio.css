@@ -1,0 +1,89 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Portfolio
+   Solo proyectos con foto real. Las fotos son composiciones
+   verticales «Antes / Después»: se muestran completas, sin recorte.
+   ══════════════════════════════════════════════════════════════ */
+
+.portfolio {
+  padding-block: var(--section-y);
+}
+
+.portfolio__inner { row-gap: var(--sp-12); }
+
+/* ── Header ──────────────────────────────────────────────────── */
+.portfolio__sub {
+  max-width: 34ch;
+  margin-top: var(--sp-5);
+  color: var(--fg-muted);
+}
+
+/* ── Grid ────────────────────────────────────────────────────── */
+.portfolio__grid {
+  display: grid;
+  gap: var(--sp-16) var(--gutter);
+}
+
+/* ── Project card ────────────────────────────────────────────── */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card__media {
+  overflow: hidden;
+}
+.project-card__img {
+  width: 100%;
+  height: auto;
+  transition: transform 1.2s var(--ease-out);
+}
+@media (hover: hover) {
+  .project-card:hover .project-card__img { transform: scale(1.03); }
+}
+
+/* ── Card meta ───────────────────────────────────────────────── */
+.project-card__meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-5);
+  padding-top: var(--sp-6);
+}
+.project-card__index {
+  flex: none;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+  color: var(--color-laton);
+}
+.project-card__title {
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  font-weight: var(--fw-light);
+  color: var(--fg);
+}
+.project-card__info {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .portfolio__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Ritmo escalonado entre tarjetas */
+  .project-card:nth-child(2) { margin-top: var(--sp-24); }
+}
+
+@media (min-width: 1024px) {
+  .portfolio__header {
+    grid-column: 1 / span 4;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--nav-h) + var(--sp-12));
+  }
+  .portfolio__grid { grid-column: 5 / -1; }
+}

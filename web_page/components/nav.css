@@ -1,0 +1,204 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Navigation
+   ══════════════════════════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: var(--nav-h);
+  z-index: 900;
+  background-color: var(--color-marfil);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-base);
+  /* Solo opacidad: un transform convertiría a .nav en el bloque
+     contenedor del panel móvil (position: fixed). */
+  animation: navFadeIn 0.8s var(--ease-out) both;
+}
+
+/* ── Scrolled state (added by JS) ────────────────────────────── */
+.nav.is-scrolled { border-color: var(--color-travertino); }
+
+/* ── Inner layout ────────────────────────────────────────────── */
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Brand / Logo ────────────────────────────────────────────────
+   SVG maestro horizontal en carbón. El archivo trae 18 u de aire
+   propio (5,36 % del ancho): se compensa para que el dibujo quede
+   alineado al margen. Sin efectos al pasar el cursor. */
+.nav__brand {
+  display: block;
+  flex: none;
+  margin-inline-start: calc(var(--logo-w) * -0.0536);
+}
+.nav__logo {
+  width: var(--logo-w);
+  height: auto;
+}
+
+/* ── Desktop links ───────────────────────────────────────────── */
+.nav__links { display: none; }
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--sp-2);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.02em;
+  color: var(--color-carbon);
+}
+/* Filete de latón: detalle, el texto sigue en carbón */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 2px;
+  height: 1px;
+  background-color: var(--color-laton);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-base);
+}
+.nav__link:focus-visible::after,
+.nav__link[aria-current="true"]::after { transform: scaleX(1); }
+
+@media (hover: hover) {
+  .nav__link:hover::after { transform: scaleX(1); }
+}
+
+/* ── Hamburger (mobile only) ─────────────────────────────────── */
+.nav__hamburger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 48px;
+  height: 48px;
+  margin-inline-end: -12px;   /* las líneas quedan alineadas al margen */
+  color: var(--color-carbon);
+}
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform var(--t-base);
+  transform-origin: center;
+}
+/* Open state */
+.nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ── Mobile overlay (velo carbón al 50 %) ────────────────────── */
+.nav__overlay {
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  background-color: rgba(17, 17, 15, 0.5);
+  z-index: 899;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-slow);
+}
+.nav__overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Mobile menu panel ───────────────────────────────────────────
+   Entra por la derecha bajo la barra, así el logo nunca queda
+   tapado. visibility lo saca del orden de tabulación al cerrarse. */
+.nav__mobile {
+  --focus: var(--color-laton);
+  position: fixed;
+  inset-block: var(--nav-h) 0;
+  inset-inline-end: 0;
+  width: min(360px, 88vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--sp-12);
+  padding: var(--sp-12) var(--page-margin) var(--sp-10);
+  overflow-y: auto;
+  background-color: var(--color-carbon);
+  color: var(--color-marfil);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform var(--t-slow), visibility 0s linear 0.7s;
+}
+.nav__mobile.is-open {
+  transform: none;
+  visibility: visible;
+  transition: transform var(--t-slow), visibility 0s;
+}
+
+.nav__mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.nav__mobile-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-5);
+  padding-block: var(--sp-2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-light);
+  color: var(--color-marfil);
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity var(--t-base), transform var(--t-slow), color var(--t-base);
+}
+.nav__mobile-num {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+  color: var(--color-laton);
+}
+.nav__mobile.is-open .nav__mobile-link { opacity: 1; transform: none; }
+.nav__mobile.is-open li:nth-child(1) .nav__mobile-link { transition-delay: 0.12s; }
+.nav__mobile.is-open li:nth-child(2) .nav__mobile-link { transition-delay: 0.18s; }
+.nav__mobile.is-open li:nth-child(3) .nav__mobile-link { transition-delay: 0.24s; }
+.nav__mobile.is-open li:nth-child(4) .nav__mobile-link { transition-delay: 0.30s; }
+.nav__mobile-link[aria-current="true"] { color: var(--color-laton); }
+
+.nav__mobile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--color-piedra-clara);
+}
+.nav__mobile-contact a {
+  align-self: flex-start;
+  color: var(--color-marfil);
+}
+
+/* ── Responsive breakpoint ───────────────────────────────────── */
+@media (min-width: 1024px) {
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-10);
+  }
+  .nav__hamburger,
+  .nav__mobile,
+  .nav__overlay { display: none; }
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes navFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

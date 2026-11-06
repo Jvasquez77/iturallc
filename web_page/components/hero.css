@@ -1,0 +1,135 @@
+/* ══════════════════════════════════════════════════════════════
+   iTura studio — Component: Hero Section
+   Móvil: foto arriba a sangre y texto debajo (manual, pág. 34).
+   Escritorio: texto en marfil a la izquierda, foto a la derecha.
+   ══════════════════════════════════════════════════════════════ */
+
+.hero {
+  padding-block: var(--nav-h) var(--sp-16);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-10);
+}
+
+/* ── Imagen: proyecto-01, mitad «Después» ────────────────────── */
+.hero__media {
+  order: -1;
+  margin-inline: calc(var(--page-margin) * -1);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-travertino);
+  animation: heroCurtain 1.4s var(--ease-in-out) both;
+}
+.hero__media picture,
+.hero__media img {
+  width: 100%;
+  height: 100%;
+}
+.hero__media img {
+  object-fit: cover;
+  object-position: 50% 36%;
+  animation: heroSettle 2.4s var(--ease-out) both;
+}
+
+/* ── Texto ───────────────────────────────────────────────────── */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__label { animation: heroFadeUp 0.9s 0.2s var(--ease-out) both; }
+.hero__label::before { animation: squareIn 0.6s 0.35s var(--ease-out) both; }
+
+.hero__title {
+  margin-bottom: var(--sp-6);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+/* Cada línea sube desde una máscara; el relleno inferior evita
+   recortar los trazos descendentes (p, q). */
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.hero__line > span {
+  display: block;
+  animation: heroLineUp 1.1s var(--ease-out) both;
+}
+.hero__line:nth-child(1) > span { animation-delay: 0.30s; }
+.hero__line:nth-child(2) > span { animation-delay: 0.42s; }
+
+.hero__statement {
+  max-width: 46ch;
+  margin-bottom: var(--sp-10);
+  color: var(--fg-muted);
+  animation: heroFadeUp 0.9s 0.6s var(--ease-out) both;
+}
+
+.hero__cta { animation: heroFadeUp 0.9s 0.75s var(--ease-out) both; }
+
+/* ── Escritorio ──────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* fallback */
+    min-height: min(100svh, 960px);
+    padding-block: calc(var(--nav-h) + var(--sp-12)) var(--sp-16);
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    column-gap: var(--gutter);
+    align-items: center;
+  }
+
+  .hero__content { grid-column: 1 / span 6; grid-row: 1; }
+
+  .hero__media {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+    margin-inline: 0;
+    aspect-ratio: 490 / 630;
+  }
+  .hero__media img { object-position: 50% 50%; }
+
+  /* Botón de contorno en escritorio (manual, pág. 33) */
+  .hero__cta                { background-color: transparent; color: var(--fg); }
+  .hero__cta::before        { background-color: var(--fg); }
+  .hero__cta:focus-visible  { color: var(--bg); }
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .hero__cta:hover { color: var(--bg); }
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroLineUp {
+  from { transform: translateY(110%); }
+  to   { transform: none; }
+}
+@keyframes heroCurtain {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes heroSettle {
+  from { transform: scale(1.14); }
+  to   { transform: none; }
+}
+@keyframes squareIn {
+  from { transform: scale(0); }
+  to   { transform: none; }
+}

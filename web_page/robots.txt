@@ -1,0 +1,5 @@
+# iTura studio
+User-agent: *
+Allow: /
+
+Sitemap: https://itura.studio/sitemap.xml
